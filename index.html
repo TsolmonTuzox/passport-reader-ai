@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passport Reader AI - Professional OCR System</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <!-- Tesseract.js OCR Library -->
+    <script src="https://unpkg.com/tesseract.js@5.1.0/dist/tesseract.min.js"></script>
+    <script>
+        // Fallback CDN if primary fails
+        setTimeout(() => {
+            if (typeof Tesseract === 'undefined') {
+                console.log('Primary CDN failed, trying alternate...');
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js';
+                script.onerror = () => {
+                    console.error('All CDNs failed. Please run with local server: ./start.sh');
+                };
+                document.head.appendChild(script);
+            }
+        }, 1000);
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>🌐 Passport Reader AI System</h1>
+            <p class="subtitle">Real Neural Network OCR Processing</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Real AI Banner -->
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; text-align: center; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <strong>🧠 Powered by Real AI:</strong> Using Tesseract.js neural networks for actual text recognition
+            </div>
+
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📤</div>
+                    <h3>Upload Passport Image</h3>
+                    <p>Drag & drop or click to select</p>
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                </div>
+                
+                <div class="preview-section" id="previewSection" style="display:none;">
+                    <h3>Image Preview</h3>
+                    <img id="previewImage" class="preview-image" alt="Passport preview">
+                    <button id="processBtn" class="btn btn-primary">
+                        <span class="btn-icon">🤖</span>
+                        Process with Real AI
+                    </button>
+                </div>
+            </section>
+
+            <!-- Processing Status -->
+            <section class="processing-section" id="processingSection" style="display:none;">
+                <div class="processing-status">
+                    <div class="spinner"></div>
+                    <h3>Neural Network Processing...</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p id="statusText">Initializing OCR engine...</p>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display:none;">
+                <h2>📊 AI Extraction Results</h2>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>Extracted Data</h3>
+                        <div class="data-fields">
+                            <div class="data-field">
+                                <label>Full Name:</label>
+                                <input type="text" id="fullName" readonly>
+                            </div>
+                            <div class="data-field">
+                                <label>Passport Number:</label>
+                                <input type="text" id="passportNumber" readonly>
+                            </div>
+                            <div class="data-field">
+                                <label>Nationality:</label>
+                                <input type="text" id="nationality" readonly>
+                            </div>
+                            <div class="data-field">
+                                <label>Date of Birth:</label>
+                                <input type="text" id="dateOfBirth" readonly>
+                            </div>
+                            <div class="data-field">
+                                <label>Gender:</label>
+                                <input type="text" id="gender" readonly>
+                            </div>
+                            <div class="data-field">
+                                <label>Issue Date:</label>
+                                <input type="text" id="issueDate" readonly>
+                            </div>
+                            <div class="data-field">
+                                <label>Expiry Date:</label>
+                                <input type="text" id="expiryDate" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <h3>Raw OCR Output</h3>
+                        <textarea id="rawText" class="raw-text" readonly></textarea>
+                    </div>
+
+                    <div class="result-card">
+                        <h3>MRZ Data</h3>
+                        <pre id="mrzData" class="mrz-data"></pre>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button id="exportBtn" class="btn btn-secondary">
+                        <span class="btn-icon">📥</span>
+                        Export Data
+                    </button>
+                    <button id="newScanBtn" class="btn btn-primary">
+                        <span class="btn-icon">📷</span>
+                        New Scan
+                    </button>
+                </div>
+
+                <div class="metrics">
+                    <div class="metric">
+                        <span class="metric-label">Processing Time:</span>
+                        <span class="metric-value" id="processingTime">-</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Neural Net Confidence:</span>
+                        <span class="metric-value" id="confidence">-</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Status:</span>
+                        <span class="metric-value" id="status">Ready</span>
+                    </div>
+                </div>
+
+                <div class="highlight" style="margin-top: 20px;">
+                    <strong>🎯 Real AI Results:</strong> This data was extracted using actual neural network OCR technology. 
+                    For production deployments, cloud APIs provide 95%+ accuracy with sub-second processing.
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Load Real AI Processing Modules -->
+    <script src="src/js/passport-parser.js"></script>
+    <script src="src/js/ocr-processor.js"></script>
+    <script src="src/js/app.js"></script>
+</body>
+</html>
