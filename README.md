@@ -2,6 +2,10 @@
 
 An open-source AI-powered passport reading system that extracts data from passport images in seconds. Built to solve real-world document processing challenges faced by consulates and government offices.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub Stars](https://img.shields.io/github/stars/TsolmonTuzox/passport-reader-ai)](https://github.com/TsolmonTuzox/passport-reader-ai/stargazers)
+[![Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://tsolmontuzox.github.io/passport-reader-ai)
+
 ## 🎯 The Problem
 
 During a meeting with a consul in San Francisco, I learned about a critical challenge:
@@ -33,6 +37,8 @@ cd passport-reader-ai
 open http://localhost:8000
 ```
 
+Or try the [live demo](https://tsolmontuzox.github.io/passport-reader-ai) →
+
 ## 📊 Performance Metrics
 
 | Metric | Traditional Scanner | Our AI Solution |
@@ -52,9 +58,129 @@ open http://localhost:8000
 - **Supported Formats**: JPG, PNG, PDF, HEIC
 - **Deployment**: Static hosting (Vercel, Netlify, GitHub Pages)
 
+## 📸 Features
+
+### Core Functionality
+- Extract passport holder's name
+- Read passport number
+- Identify nationality
+- Parse dates (birth, issue, expiry)
+- Detect gender
+- Process MRZ (Machine Readable Zone)
+
+### Advanced Features
+- Multi-language support (50+ languages)
+- Batch processing
+- API integration
+- Export to various formats (JSON, CSV, XML)
+- Confidence scoring
+- Error handling and validation
+
+## 🔧 Installation
+
+### For Development
+
+```bash
+# Clone repository
+git clone https://github.com/TsolmonTuzox/passport-reader-ai.git
+cd passport-reader-ai
+
+# Start development server
+./start.sh
+
+# Or use Python directly
+python3 server.py
+
+# Or use Node.js
+npm install -g http-server
+http-server -p 8000 --cors
+```
+
+### For Production
+
+See our [comprehensive deployment guide](docs/deployment-guide.md) for:
+- Cloud deployment (AWS, Google Cloud, Azure)
+- On-premise installation
+- Docker deployment
+- API integration
+
+## 💻 Usage
+
+### Basic Usage
+
+```javascript
+// Initialize the passport reader
+const reader = new PassportReader();
+
+// Process an image
+const result = await reader.processImage(imageFile);
+
+// Access extracted data
+console.log(result.fullName);        // "John Doe"
+console.log(result.passportNumber);  // "A1234567"
+console.log(result.nationality);     // "USA"
+console.log(result.expiryDate);      // "2030-12-31"
+```
+
+### API Integration
+
+```javascript
+// Configure for production API
+const reader = new PassportReader({
+  provider: 'google',  // or 'aws', 'azure'
+  apiKey: process.env.VISION_API_KEY
+});
+```
+
+## 📈 Real-World Impact
+
+Built after meeting with Vietnam Consul who needed a better solution:
+- 🏛️ Designed for government offices
+- 📱 Works with phone photos
+- 🌍 Supports all passport formats
+- 💰 Saves time and money
+- 🔒 Privacy-focused (browser-based processing)
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+### Ways to Contribute
+- Add support for new passport formats
+- Improve OCR accuracy
+- Add new languages
+- Enhance parsing algorithms
+- Write documentation
+- Report bugs
+
+## 🗺️ Roadmap
+
+- [ ] Driver's license support
+- [ ] National ID card recognition  
+- [ ] Visa processing
+- [ ] Mobile SDK (iOS/Android)
+- [ ] Real-time video processing
+- [ ] Blockchain verification
+
+## ⚖️ Legal Notice
+
+This software is provided for legitimate document processing purposes only. Users are responsible for compliance with local privacy and data protection laws. Always obtain proper consent before processing personal documents.
+
 ## 📄 License
 
 MIT License - see [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- The Vietnam consul who inspired this solution
+- All contributors who have improved the codebase
+- The open-source community for feedback and support
+
+## 📞 Support
+
+- 📧 Open an issue on GitHub
+- 💻 View the [live demo](https://tsolmontuzox.github.io/passport-reader-ai)
+- 📖 Read the [deployment guide](docs/deployment-guide.md)
 
 ---
 
