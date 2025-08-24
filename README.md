@@ -134,7 +134,7 @@ const reader = new PassportReader({
 
 ## 📈 Real-World Impact
 
-Built after meeting with Vietnam Consul who needed a better solution:
+Built after meeting with Consul who needed a better solution:
 - 🏛️ Designed for government offices
 - 📱 Works with phone photos
 - 🌍 Supports all passport formats
@@ -172,7 +172,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
-- The Vietnam consul who inspired this solution
+- The consul who inspired this solution
 - All contributors who have improved the codebase
 - The open-source community for feedback and support
 
