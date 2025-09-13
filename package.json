@@ -1,0 +1,19 @@
+{
+  "name": "passport-reader-ai",
+  "version": "1.0.0",
+  "description": "An open-source AI-powered passport reading system that extracts data from passport images in seconds. Built to solve real-world document processing challenges faced by consulates and government offices.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
